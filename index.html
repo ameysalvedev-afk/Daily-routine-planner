@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Routine Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="title">Daily Routine</h1>
+      <p class="subtitle">Plan your day, one block at a time</p>
+      <div class="date-display" id="dateDisplay"></div>
+    </header>
+
+    <main class="main">
+      <section class="add-section">
+        <form class="add-form" id="addForm">
+          <div class="form-row">
+            <input type="time" id="taskTime" class="input input-time" value="09:00" required />
+            <input type="text" id="taskTitle" class="input input-title" placeholder="What are you doing?" maxlength="120" required />
+            <select id="taskCategory" class="input input-category">
+              <option value="work">Work</option>
+              <option value="health">Health</option>
+              <option value="learning">Learning</option>
+              <option value="personal">Personal</option>
+              <option value="rest">Rest</option>
+              <option value="other">Other</option>
+            </select>
+            <button type="submit" class="btn btn-add">Add</button>
+          </div>
+          <div class="form-row optional">
+            <input type="text" id="taskNotes" class="input input-notes" placeholder="Optional notes..." />
+          </div>
+        </form>
+      </section>
+
+      <section class="routine-section">
+        <div class="routine-header">
+          <h2>Today's schedule</h2>
+          <div class="stats" id="stats">
+            <span id="taskCount">0 tasks</span>
+            <span id="completedCount">0 done</span>
+          </div>
+        </div>
+        <ul class="routine-list" id="routineList"></ul>
+        <div class="empty-state" id="emptyState">
+          <p>No tasks yet. Add your first block above.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="editModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <h3>Edit task</h3>
+      <form id="editForm">
+        <input type="hidden" id="editId" />
+        <label>
+          <span>Time</span>
+          <input type="time" id="editTime" required />
+        </label>
+        <label>
+          <span>Title</span>
+          <input type="text" id="editTitle" maxlength="120" required />
+        </label>
+        <label>
+          <span>Category</span>
+          <select id="editCategory">
+            <option value="work">Work</option>
+            <option value="health">Health</option>
+            <option value="learning">Learning</option>
+            <option value="personal">Personal</option>
+            <option value="rest">Rest</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>
+          <span>Notes</span>
+          <input type="text" id="editNotes" />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
