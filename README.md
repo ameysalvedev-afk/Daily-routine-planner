@@ -29,4 +29,4 @@ A simple, fully functional app to plan your daily routine in the browser.
 
 2. Then visit `http://localhost:8080` (or the URL shown).
 
-Your routine is stored per calendar day, so each day starts with a fresh list (or your saved list for that day if you used it before).
+Your routine is stored per calendar day, so each day starts with a fresh list (or your saved list for that day if you used it before)
